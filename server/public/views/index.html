@@ -3,8 +3,14 @@
   <head>
     <meta charset="utf-8">
     <title>Department of Emerging Superhero Knowledge</title>
+    <script src="vendor/angular.min.js"></script>
+    <script src="scripts/client-app.js"></script>
   </head>
   <body>
     <h1>Department of Emerging Superhero Knowledge</h1>
+    <div ng-include="'views/partials/nav.html'"</div>
+      <main ng-view>
+
+      </main>
   </body>
 </html>

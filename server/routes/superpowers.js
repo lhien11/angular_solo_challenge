@@ -21,7 +21,7 @@ router.get('/', function (req, res) {
           console.log('error on SELECT', err);
           res.sendStatus(500);
         });
-    });    
+    });
 });
 
 

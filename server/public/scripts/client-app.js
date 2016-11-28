@@ -8,59 +8,38 @@ app.config(['$routeProvider', function($routeProvider) {
       controllerAs: 'heroes'
     })
 
-    // .when('/heros', {
-    //   templateUrl: '/views/templates/heroes.html',
-    //   controller: 'heroes_Controller',
-    //   controllerAs: 'heroes'
-    // })
-
     .otherwise({
       redirectTo: 'home'
     });
 
 }]);
 
-// app.controller("heroes_Controller", ["$http", function($http) {
-//   console.log('running hero');
-//
-//   var self = this;
-//   self.name = {};
-//   self.description = [];
-//
-//   getHeroes();
-//
-//   // read only
-//   function getHeroes() {
-//     console.log('heroes init');
-//     $http.get('/heroes')
-//       .then(function(response) {
-//         console.log(response.data);
-//         var empData = response.data;
-//       self.data = response.data;
-//     });
-//   }
-//
-//
-// }]);
 app.controller("heroes_controller", ["$http", function($http) {
   console.log('running');
 
   var self = this;
-  self.name = {};
-  self.description = [];
 
-  getSuperPower();
+  getHeroes();
 
   // read only
-  function getSuperPower() {
+  function getHeroes() {
     console.log('heroes init');
     $http.get('/heroes')
-      .then(function(response) {
+      .then(function(response){
         console.log(response.data);
-        var empData = response.data;
+        //var empData = response.data;
       self.data = response.data;
     });
   }
+
+  self.addHero = function() {
+  //console.log('new employee: ', self.newEmp);
+  $http.post('/heroes', self.newHero)
+    .then(function(response) {
+      //console.log('POST finished. Get salaries again.');
+      getHeroes();
+    });
+}
 
   self.deletePower = function(heroObj){
     var id = heroObj.id;
@@ -68,6 +47,6 @@ app.controller("heroes_controller", ["$http", function($http) {
       .then(function(response){
         console.log("DELETE HIM!! NOW");
         getSuperPower();
-      })
+      });
   }
 }]);

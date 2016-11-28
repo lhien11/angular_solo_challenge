@@ -38,3 +38,8 @@ VALUES ('Cipher', 'Alisa Tager', 1),
 ('Phoenix', 'Jean Grey-Summers', 8),
 ('Juggernaut', 'Cain Marko', 9),
 ('Match', 'Ben Hamill', 10);
+
+--SELECT * FROM heroes;
+--
+--DROP table heroes;
+--DROP table super_powers;

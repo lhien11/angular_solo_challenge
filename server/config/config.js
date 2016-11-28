@@ -1,5 +1,5 @@
 var config = {
-  database: 'Heros',
+  database: 'sigma',
 };
 
 module.exports = config;
